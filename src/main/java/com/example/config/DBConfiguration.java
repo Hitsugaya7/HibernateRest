@@ -35,7 +35,7 @@ public class DBConfiguration {
 	@Value("${hibernate.show_sql}")
 	private String SHOW_SQL;
 
-	@Value("${hibernate.hbm2ddl.auto}")
+	 @Value("${hibernate.hbm2ddl.auto}")
 	private String HBM2DDL_AUTO;
 
 	@Value("${entitymanager.packagesToScan}")

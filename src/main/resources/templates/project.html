@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:text ="${project.id}"></div>
+<div th:text ="${project.name}"></div>
+<div th:text ="${project.employees}"></div>
+
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+
+
+    </tr>
+    <tr th:each="in : ${ins}" >
+        <td th:utext="${in.id}"></td>
+        <td th:utext="${in.name}"></td>
+        <td>
+            <button type="submit" th:onclick="'sendId(\''+${project.id}+${in.id}+ '\');'">add</button>
+        </td>
+    </tr>
+</table>
+
+</body>
+<script type="text/javascript" >
+    function sendId(id) {
+        const xhr = new XMLHttpRequest();
+        const url = "http://localhost:8080/projects";
+        xhr.open("PUT", url, false);
+        xhr.send(id);
+    }
+</script>
+</html>
